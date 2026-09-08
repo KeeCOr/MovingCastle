@@ -16,10 +16,19 @@ const UPGRADE_PATHS = [
 
 func _ready() -> void:
 	back_button.pressed.connect(func(): get_tree().change_scene_to_file("res://scenes/main_menu/MainMenu.tscn"))
+	var icon := TextureRect.new()
+	icon.texture = preload("res://assets/ui/resource_icons/gold.png")
+	icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	icon.custom_minimum_size = Vector2(24, 24)
+	icon.position = Vector2(-28, 0)
+	icon.size = Vector2(24, 24)
+	icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	gold_label.add_child(icon)
 	_build_list()
 
 func _build_list() -> void:
-	gold_label.text = "보유 골드: %d" % SaveData.total_gold
+	gold_label.text = "%d" % SaveData.total_gold
 	for child in upgrade_list.get_children():
 		child.queue_free()
 	for path in UPGRADE_PATHS:

@@ -50,7 +50,9 @@ func gain_xp(amount: float) -> void:
 
 func take_castle_damage(amount: float) -> void:
 	castle_hp = max(0.0, castle_hp - amount)
+	AudioDirector.play_cue(&"danger")
 	if castle_hp <= 0.0:
+		AudioDirector.play_cue(&"result")
 		emit_signal("castle_died")
 
 func heal_castle(amount: float) -> void:

@@ -5,6 +5,7 @@
 [application]
 
 config/name="LivingMansion"
+config/version="0.3.1"
 config/features=PackedStringArray("4.3", "Forward Plus")
 run/main_scene="res://scenes/main_menu/MainMenu.tscn"
 config/icon="res://icon.png"
@@ -13,6 +14,7 @@ config/icon="res://icon.png"
 
 SaveData="*res://autoloads/SaveData.gd"
 GameState="*res://autoloads/GameState.gd"
+AudioDirector="*res://autoloads/AudioDirector.gd"
 
 [input]
 
