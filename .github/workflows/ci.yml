@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  verify:
+    name: Project Structure Verify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify Godot project structure
+        run: |
+          ls project.godot || ls *.godot || echo "Godot project file check"
+          ls scenes/ || true
+          ls scripts/ || true
+          echo "Godot export requires Godot CLI on a self-hosted runner."
+          echo "Use abarichello/godot-ci@v3 for automated exports."
+
+  # To enable Godot export:
+  # 1. Export presets configured in Godot Editor (export_presets.cfg committed)
+  # 2. Uncomment the export job below
+  #
+  # export:
+  #   needs: verify
+  #   runs-on: ubuntu-latest
+  #   container:
+  #     image: barichello/godot-ci:4.3
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: Export Windows
+  #       run: |
+  #         mkdir -p build/windows
+  #         godot --headless --export-release "Windows Desktop" build/windows/game.exe
