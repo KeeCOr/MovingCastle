@@ -4,7 +4,8 @@ extends CanvasLayer
 @onready var title_label: Label = $Panel/VBoxContainer/TitleLabel
 @onready var stage_label: Label = $Panel/VBoxContainer/StageLabel
 @onready var wave_label: Label = $Panel/VBoxContainer/WaveLabel
-@onready var gold_label: Label = $Panel/VBoxContainer/GoldLabel
+@onready var gold_reward: HBoxContainer = $Panel/VBoxContainer/GoldReward
+@onready var gold_label: Label = $Panel/VBoxContainer/GoldReward/AmountLabel
 @onready var level_label: Label = $Panel/VBoxContainer/LevelLabel
 @onready var continue_button: Button = $Panel/VBoxContainer/ContinueButton
 
@@ -18,7 +19,8 @@ func show_victory(stage: int, gold_reward: int) -> void:
 	title_label.text = "Stage Clear!"
 	stage_label.text = "Stage %d" % stage
 	wave_label.text = "All Waves Cleared"
-	gold_label.text = "Gold +%d" % gold_reward
+	self.gold_reward.visible = true
+	gold_label.text = "+%d" % gold_reward
 	level_label.text = "Lv. %d" % GameState.level
 	continue_button.text = "Continue"
 	visible = true
@@ -28,7 +30,7 @@ func show_defeat(stage: int, wave_reached: int) -> void:
 	title_label.text = "Game Over"
 	stage_label.text = "Stage %d" % stage
 	wave_label.text = "Wave %d" % wave_reached
-	gold_label.text = ""
+	gold_reward.visible = false
 	level_label.text = "Lv. %d" % GameState.level
 	continue_button.text = "Retry"
 	visible = true

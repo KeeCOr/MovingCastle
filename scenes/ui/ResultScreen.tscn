@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://resultscr1"]
+[gd_scene load_steps=3 format=3 uid="uid://resultscr1"]
 
 [ext_resource type="Script" path="res://scenes/ui/ResultScreen.gd" id="1_rs1"]
+[ext_resource type="Texture2D" path="res://assets/ui/resource_icons/gold.png" id="2_gold"]
 
 [node name="ResultScreen" type="CanvasLayer"]
 process_mode = 3
@@ -29,9 +30,21 @@ horizontal_alignment = 1
 layout_mode = 2
 horizontal_alignment = 1
 
-[node name="GoldLabel" type="Label" parent="Panel/VBoxContainer"]
+[node name="GoldReward" type="HBoxContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
-horizontal_alignment = 1
+alignment = 1
+
+[node name="GoldIcon" type="TextureRect" parent="Panel/VBoxContainer/GoldReward"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("2_gold")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="AmountLabel" type="Label" parent="Panel/VBoxContainer/GoldReward"]
+layout_mode = 2
+text = "+0"
 
 [node name="LevelLabel" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2

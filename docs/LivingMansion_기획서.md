@@ -70,3 +70,10 @@ LivingMansion은 저택의 방을 조사하며 단서를 얻고, 그 단서가 �
 - **볼륨 분리**: BGM과 SFX 음량을 독립적으로 조절하며 위험·결과 신호에서는 BGM을 일시적으로 낮춘다.
 - **음원 출처**: Kenney Music Loops(CC0)와 프로젝트 생성 스크립트로 결정론적으로 만든 독창적 PCM WAV 큐를 사용한다.
 - **런타임 원칙**: 핵심 오디오 레이어는 사전 생성된 음원을 사용하며 런타임 합성음에 의존하지 않는다.
+
+## 2026-09-08 Resource Counter UI (v0.4.0)
+
+- HUD and meta balance counters show the ImageGen `gold.png` icon followed only by a number.
+- The result reward shows the same icon followed by a signed amount, for example `+50`.
+- Meta upgrade costs use an icon-and-number HBox; visible `Gold: 0`, owned-gold, and text cost labels are removed.
+- Tutorial, descriptive, log, and accessibility text remain allowed to name the resource.
